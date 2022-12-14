@@ -16,16 +16,14 @@ class LinkedList:
                 self.head = node
 
         def insert_end(self,data):
-                node = Node(data, None, )
-
                 if self.head is None:
-                        self.head = node
+                        self.head = Node(data, None, None)
                         return
 
                 itr = self.head
                 while itr.nxt:
                         itr = itr.nxt
-                itr.nxt = node
+                itr.nxt = Node(data, None, itr)
 
         def insert_list(self, data_list):
                 self.head = None
@@ -48,7 +46,7 @@ class LinkedList:
                 itr = self.head
                 while itr:
                         if counter == pos-1:
-                                node = Node(data, itr.nxt)
+                                node = Node(data, itr.nxt, itr)
                                 itr.nxt = node
                                 break
                         counter += 1
